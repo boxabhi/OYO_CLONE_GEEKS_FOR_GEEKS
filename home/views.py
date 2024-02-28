@@ -2,14 +2,15 @@ from django.shortcuts import render
 from accounts.models import Hotel , HotelBooking, HotelUser
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.views.decorators.cache import cache_page
 
 
 
 # Create your views here.
 
-
+# @cache_page(60 * 2)
 def index(request):
-    hotels = Hotel.objects.all()
+    hotels = Hotel.objects.all().select_related('hotel_owner').prefetch_related('hotel_images', 'ameneties')
     if request.GET.get('search'):
         hotels = hotels.filter(hotel_name__icontains = request.GET.get('search'))
 
@@ -22,6 +23,7 @@ def index(request):
     return render(request, 'index.html', context = {'hotels' : hotels[:50]})
 
 from datetime import datetime
+
 
 def hotel_details(request, slug):
     hotel = Hotel.objects.get(hotel_slug = slug)

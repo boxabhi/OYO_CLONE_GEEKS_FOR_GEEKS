@@ -30,6 +30,13 @@
 {% endif %}
               <div class="card-body">
                   <h5 class="card-title">{{hotel.hotel_name}}</h5>
+
+                  {{hotel.hotel_owner.phone_number}}
+                  
+                  {{hotel.hotel_images.all}}
+                  {{hotel.ameneties.all}}
+
+                
                 
                     Price <span class="badge text-bg-danger">{{hotel.hotel_price}}</span>
                     Offer Price <span class="badge text-bg-success">{{hotel.hotel_offer_price}}</span>
