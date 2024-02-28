@@ -299,6 +299,3 @@ EMAIL_PORT = 587
 
 
 
-
-EMAIL_HOST_USER =  "bhaufacts@gmail.com"
-EMAIL_HOST_PASSWORD ="rpogydowmmjstrsp"

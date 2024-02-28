@@ -14,8 +14,7 @@
                 <img src="/media/{{hotel.hotel_images.first.image}}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{hotel.hotel_name}}</h5>
-                  <p class="card-text">{{hotel.hotel_description}}</p>
-                 
+                
                   {% for amenetie in hotel.ameneties.all %}
             
                   <span class="badge text-bg-primary">{{amenetie.name}}</span>
@@ -24,12 +23,13 @@
 
                 </div>
                 <a href="{% url 'upload_images' hotel.hotel_slug %}" class="btn btn-success">Image</a>
-                <a href="#" class="btn btn-warning">Edit</a>
+                <a href="{% url 'edit_hotel' hotel.hotel_slug %}" class="btn btn-warning">Edit</a>
 
               </div>
         </div>
 
     {% endfor %}
+
 
     
     </div>
