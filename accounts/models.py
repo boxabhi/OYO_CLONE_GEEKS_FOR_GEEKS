@@ -44,12 +44,6 @@ class Hotel(models.Model):
     hotel_location = models.TextField()
     is_active = models.BooleanField(default = True)
 
-    class Meta:
-        indexes = [
-                    models.Index(fields=["hotel_name"]),
-               
-                ]
-
 
 
 
